@@ -340,11 +340,21 @@ std::unique_ptr<ASTNode> Parser::parseTerm() {
 std::unique_ptr<ASTNode> Parser::parseFactor() {
     auto left = parsePower();
     
-    while (currentToken.type == TokenType::MULTIPLY || currentToken.type == TokenType::DIVIDE) {
-        BinaryOpNode::OpType op = (currentToken.type == TokenType::MULTIPLY) ? 
-            BinaryOpNode::OpType::MULTIPLY : BinaryOpNode::OpType::DIVIDE;
+    while (currentToken.type == TokenType::MULTIPLY || currentToken.type == TokenType::DIVIDE ||
+           currentToken.type == TokenType::NUMBER || currentToken.type == TokenType::VARIABLE || 
+           currentToken.type == TokenType::FUNCTION || currentToken.type == TokenType::LEFT_PAREN) {
         
-        advance();
+        BinaryOpNode::OpType op;
+        
+        if (currentToken.type == TokenType::MULTIPLY || currentToken.type == TokenType::DIVIDE) {
+            op = (currentToken.type == TokenType::MULTIPLY) ? 
+                BinaryOpNode::OpType::MULTIPLY : BinaryOpNode::OpType::DIVIDE;
+            advance();
+        } else {
+            // Implicit multiplication detected
+            op = BinaryOpNode::OpType::MULTIPLY;
+        }
+        
         auto right = parsePower();
         left = std::make_unique<BinaryOpNode>(op, std::move(left), std::move(right));
     }
