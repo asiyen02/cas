@@ -52,7 +52,7 @@ cmake --build .
 Type commands such as: `parse <expr>`, `eval <expr>`, `diff <expr>`, `integrate <expr>`, `simplify <expr>`, `graph <expr>`.
 
 ## Graphing
-- `graph <expr>` opens the SFML GUI grapher when SFML is available; otherwise uses the console grapher.
+- `graph <expr>` opens the SFML GUI grapher when SFML is available; otherwise it automatically uses the console grapher.
 - Options: `xmin:<v> xmax:<v> ymin:<v> ymax:<v> width:<cols> height:<rows>`
 - The REPL auto-samples the function to adjust `y` range unless `ymin`/`ymax` are provided.
 
@@ -69,8 +69,4 @@ Type commands such as: `parse <expr>`, `eval <expr>`, `diff <expr>`, `integrate 
 - Auto-scaling of y-range for graphs.
 - Added `.gitignore` to exclude build artifacts.
 
-## Notes
-- On WSL, use WSLg or run an X server (VcXsrv) for SFML graphics.
-- If build artifacts are already tracked, remove them with `git rm -r --cached build` before committing.
 
-Want a shorter license or a small contributing note added? I can add a `LICENSE` (MIT) and a terse `CONTRIBUTING.md` next.
