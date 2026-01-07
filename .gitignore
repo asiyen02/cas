@@ -1,0 +1,80 @@
+# Build directories
+/build/
+/bin/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/InstallScripts.json
+/Makefile
+
+# Generated Visual Studio files
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.vcproj*
+
+# Compiled object files, libraries, executables
+*.o
+*.obj
+*.lib
+*.a
+*.so
+*.dll
+*.exe
+*.ilk
+*.pdb
+*.ilk
+
+# Static and dynamic libs from external deps
+*.dylib
+*.lo
+
+# IDEs and editors
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Test/build output
+/Testing/
+/Debug/
+/Release/
+
+# CTest and CMake user files
+/CTestTestfile.cmake
+
+# Coverage
+coverage/
+*.gcda
+*.gcno
+
+# Python virtualenvs
+venv/
+.env/
+
+# Other
+*.bak
+*.backup
+
+# Keep these important source and config files tracked (negative patterns)
+!CMakeLists.txt
+!README.md
+!*.cpp
+!*.h
+!parser/
+!cas/
+!grapher/
+!evaluator/
+!commands/
+!test_*.cpp
