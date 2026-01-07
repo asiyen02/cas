@@ -139,6 +139,7 @@ std::string SymbolicBinaryOp::toString() const {
         return "(" + left->toString() + " * " + right->toString() + ")";
     }
 
+    
     std::string opStr;
     switch (op) {
         case OpType::ADD: opStr = "+"; break;
